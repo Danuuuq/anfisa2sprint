@@ -7,7 +7,7 @@ def index(request):
     template = 'homepage/index.html'
     ice_cream_list = IceCream.objects.values(
         'id', 'title', 'description'
-    ).filter(is_published=True)
+    ).filter(is_published=True).order_by('title')[1:4]
     context = {
         'ice_cream_list': ice_cream_list,
     }
